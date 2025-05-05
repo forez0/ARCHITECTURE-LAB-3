@@ -23,3 +23,4 @@ library_project/
 │
 ├── manage.py
 └── db.sqlite3
+
