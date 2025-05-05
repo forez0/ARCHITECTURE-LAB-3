@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Головна{% endblock %}
+
+{% block content %}
+<!-- Герой секція -->
+<section class="hero-section rounded mb-5">
+    <div class="container text-center py-5">
+        <h1 class="display-4 fw-bold mb-4">Ласкаво просимо до нашої бібліотеки</h1>
+        <p class="lead mb-4">Відкрийте для себе світ книг та знань</p>
+        {% if not user.is_authenticated %}
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="{% url 'register' %}" class="btn btn-light btn-lg px-4 gap-3">Зареєструватися</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg px-4">Увійти</a>
+        </div>
+        {% else %}
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="{% url 'order' %}" class="btn btn-light btn-lg px-4 gap-3">Замовити книгу</a>
+            <a href="{% url 'my_orders' %}" class="btn btn-outline-light btn-lg px-4">Мої замовлення</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}
